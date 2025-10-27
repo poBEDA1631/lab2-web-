@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+</head>
+<body>
+    <header>
+        <h1>SAO</h1>
+        <nav aria-label="Головна навігація">
+            <ul>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="settings.html" aria-current="page">Settings</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions" role="group" aria-label="User actions">
+            <!-- Live toggle -->
+            <button id="btn-live" type="button" aria-pressed="false" aria-label="Live mode" title="Live">
+                <span aria-hidden="true">●</span>
+                <span class="visually-hidden">Live mode off</span>
+            </button>
+
+            <!-- Notifications -->
+            <button id="btn-notifications" type="button" aria-label="Оповіщення" aria-pressed="false">
+                <span aria-hidden="true">🔔</span>
+                <span class="visually-hidden">You have new messages</span>
+            </button>
+        </div>    
+    </header>
+ 
+    <main id="main">
+        <section aria-labelledby="personal-settings">
+            <h2 id="personal-settings">Settings</h2>
+            <form action="#" method="post" aria-label="Форма особистих налаштувань">
+                
+                <!-- row: Name + Email -->
+                <div class="row">
+                    <label for="name">
+                        Name:
+                        <input type="text" id="name" name="name" placeholder="Enter name">
+                    </label>
+
+                    <label for="email">
+                        Email:
+                        <input type="email" id="email" name="email" placeholder="example@mail.com">
+                    </label>
+                </div>
+
+                <!-- row: Password + Change button -->
+                <div class="row">
+                    <label for="password">
+                        Password:
+                        <input type="password" id="password" name="password" placeholder="••••••••">
+                    </label>
+                    <div>
+                        <button type="button" id="change-password">Change Password</button>
+                    </div>
+                </div>
+
+                <!-- row: Profile Photo + Upload -->
+                <div class="row">
+                    <div>
+                        <span>Profile Photo</span>
+                        <div aria-hidden="true">
+                            <picture>
+                                <source srcset="img/profile-placeholder.webp" type="image/webp">
+                                <img src="img/profile-placeholder.png" alt="Profile photo" width="80" height="80">
+                            </picture>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="photo-upload">
+                            <input id="photo-upload" name="photo" type="file" accept="image/*" hidden>
+                            <button type="button">Upload New Photo</button>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <h3>Notifications</h3>
+                <div role="group" aria-label="Notification settings">
+                    <label for="notif-email">
+                        <span>Email Reminders</span>
+                        <input id="notif-email" name="notif-email" type="checkbox" role="switch" aria-checked="true" checked>
+                    </label>
+
+                    <label for="notif-reports">
+                        <span>Reports</span>
+                        <input id="notif-reports" name="notif-reports" type="checkbox" role="switch" aria-checked="false">
+                    </label>
+                </div>
+
+                <!-- Billing -->
+                <article aria-labelledby="billing-info">
+                    <h3 id="billing-info">Billing</h3>
+                    <div>Subscription: <strong>Premium Plan</strong></div>
+                    <div>
+                        <button type="button" id="upgrade-plan">Upgrade Plan</button>
+                    </div>
+                    <div>Payment Options: <span>Visa **** 1488</span></div>
+                </article>
+
+                <!-- Main action -->
+                <div>
+                    <button type="submit" id="save-changes">Save Changes</button>
+                </div>
+            </form>
+        </section>
+    </main>
+ 
+    <footer>
+        <p>© 2025 Sao group</p>
+    </footer>
+</body>
+</html>

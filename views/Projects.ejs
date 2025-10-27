@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title itemprop="name" data-i18n="projects.page.title">Projects | SAO</title>
+</head>
+<body>
+
+<%- include('partials/header', { page: 'projects', showAccount: true }) %>
+
+<main id="main" itemscope itemtype="https://schema.org/ItemList" itemprop="mainEntity">
+  <h2 id="projects-title" itemprop="name" data-i18n="projects.page.heading">Projects</h2>
+
+  <!-- Search section -->
+  <section aria-labelledby="projects-search">
+    <form action="#" method="get" role="search" aria-label="Search projects">
+      <input id="search" type="search" name="q" placeholder="" data-i18n-placeholder="projects.search.placeholder" />
+      <button type="submit" data-i18n="projects.search.button">Search</button>
+      <button type="submit" aria-label="Create new project" data-i18n="projects.search.newProject">New Project</button>
+    </form>
+  </section>
+
+  <!-- Project list -->
+  <section aria-labelledby="project-list">
+    <h2 id="project-list" data-i18n="projects.list.heading">Active Projects</h2>
+
+    <ol>
+      <!-- Project Alpha -->
+      <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
+        <span itemprop="name" data-i18n="projects.list.alpha.name">Project Alpha</span>
+        <meta itemprop="position" content="1">
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Client">
+          <meta itemprop="value" content="Client A" data-i18n="projects.list.alpha.client">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Status">
+          <meta itemprop="value" content="Active" data-i18n="projects.list.alpha.status">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Total Time">
+          <meta itemprop="value" content="120h" data-i18n="projects.list.alpha.time">
+        </div>
+      </li>
+
+      <!-- Project Beta -->
+      <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
+        <span itemprop="name" data-i18n="projects.list.beta.name">Project Beta</span>
+        <meta itemprop="position" content="2">
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Client">
+          <meta itemprop="value" content="Client B" data-i18n="projects.list.beta.client">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Status">
+          <meta itemprop="value" content="Completed" data-i18n="projects.list.beta.status">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Total Time">
+          <meta itemprop="value" content="80h" data-i18n="projects.list.beta.time">
+        </div>
+      </li>
+
+      <!-- Project Gamma -->
+      <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
+        <span itemprop="name" data-i18n="projects.list.gamma.name">Project Gamma</span>
+        <meta itemprop="position" content="3">
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Client">
+          <meta itemprop="value" content="Client C" data-i18n="projects.list.gamma.client">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Status">
+          <meta itemprop="value" content="Active" data-i18n="projects.list.gamma.status">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Total Time">
+          <meta itemprop="value" content="150h" data-i18n="projects.list.gamma.time">
+        </div>
+      </li>
+
+      <!-- Project Delta -->
+      <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
+        <span itemprop="name" data-i18n="projects.list.delta.name">Project Delta</span>
+        <meta itemprop="position" content="4">
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Client">
+          <meta itemprop="value" content="Client D" data-i18n="projects.list.delta.client">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Status">
+          <meta itemprop="value" content="Archived" data-i18n="projects.list.delta.status">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Total Time">
+          <meta itemprop="value" content="60h" data-i18n="projects.list.delta.time">
+        </div>
+      </li>
+
+      <!-- Project Epsilon -->
+      <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
+        <span itemprop="name" data-i18n="projects.list.epsilon.name">Project Epsilon</span>
+        <meta itemprop="position" content="5">
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Client">
+          <meta itemprop="value" content="Client E" data-i18n="projects.list.epsilon.client">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Status">
+          <meta itemprop="value" content="Active" data-i18n="projects.list.epsilon.status">
+        </div>
+        <div itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+          <meta itemprop="name" content="Total Time">
+          <meta itemprop="value" content="90h" data-i18n="projects.list.epsilon.time">
+        </div>
+      </li>
+    </ol>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+</body>
+</html>

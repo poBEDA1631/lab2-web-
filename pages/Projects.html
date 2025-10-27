@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | SAO</title>
+</head>
+<body>
+
+  <header>
+    <h1>SAO </h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+        <div class="header-actions" role="group" aria-label="User actions">
+      <!-- Live toggle (каркас) -->
+      <button id="btn-live" type="button" aria-pressed="false" aria-label="Live mode" title="Live">
+        <span aria-hidden="true">●</span>
+        <span class="visually-hidden">Live mode off</span>
+      </button>
+
+      <!-- Notifications button -->
+      <button id="btn-notifications" type="button" aria-label="Оповіщення" aria-pressed="false">
+        <span aria-hidden="true">🔔</span>
+        <span class="visually-hidden">You have new messages</span>
+      </button>
+
+      <!-- Account button + menu (toggle with JS: update aria-expanded and hidden) -->
+      <button id="btn-account" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="account-menu" aria-label="Акаунт користувача">
+        <img src="img/avatar-small.png" alt="User avatar" width="24" height="24">
+      </button>
+      <ul id="account-menu" role="menu" hidden>
+        <li role="menuitem"><a href="logout.html">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Page title and search -->
+
+    <section aria-labelledby="projects-title">
+      <div class="heading-row">
+        <h2 id="projects-title">Projects</h2>
+        <button type="submit" aria-label="Create new project">New Project</button>
+      </div>
+      <form action="#" method="get" role="search" aria-label="Search projects">
+        <input id="search" type="search" name="q" placeholder="Search projects" />
+        <button type="submit">Search</button>
+      </form>
+
+    </section>
+
+    <!-- Project list -->
+    <section aria-labelledby="project-list">
+      <h2 id="project-list">Active Projects</h2>
+
+      <table>
+        <caption>Project overview with clients and status</caption>
+        <thead>
+          <tr>
+            <th scope="col">Project</th>
+            <th scope="col">Client</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Project Alpha</th>
+            <td>Client A</td>
+            <td>Active</td>
+            <td>120h</td>
+          </tr>
+          <tr>
+            <th scope="row">Project Beta</th>
+            <td>Client B</td>
+            <td>Completed</td>
+            <td>80h</td>
+          </tr>
+          <tr>
+            <th scope="row">Project Gamma</th>
+            <td>Client C</td>
+            <td>Active</td>
+            <td>150h</td>
+          </tr>
+          <tr>
+            <th scope="row">Project Delta</th>
+            <td>Client D</td>
+            <td>Archived</td>
+            <td>60h</td>
+          </tr>
+          <tr>
+            <th scope="row">Project Epsilon</th>
+            <td>Client E</td>
+            <td>Active</td>
+            <td>90h</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 SAO group</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview | SAO</title>
+</head>
+<body>
+  <header>
+    <h1>SAO</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="overview.html" aria-current="page">Overview</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions" role="group" aria-label="User actions">
+      <!-- Live toggle -->
+      <button id="btn-live" type="button" aria-pressed="false" aria-label="Live mode" title="Live">
+        <span aria-hidden="true">●</span>
+        <span class="visually-hidden">Live mode off</span>
+      </button>
+
+      <!-- Notifications -->
+      <button id="btn-notifications" type="button" aria-label="Оповіщення" aria-pressed="false">
+        <span aria-hidden="true">🔔</span>
+        <span class="visually-hidden">You have new messages</span>
+      </button>
+
+      <!-- Account -->
+      <button id="btn-account" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="account-menu" aria-label="Акаунт користувача">
+        <img src="img/avatar-small.png" alt="User avatar" width="24" height="24">
+      </button>
+      <ul id="account-menu" role="menu" hidden>
+        <li role="menuitem"><a href="logout.html">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Article: summary -->
+    <article aria-labelledby="summary">
+      <section>
+        <h2 id="summary">Work Summary</h2>
+        <p>You worked <strong>160 hours this month</strong>.</p>
+
+        <figure>
+          <picture>
+            <source srcset="img/overview-graph-600.webp 600w, img/overview-graph-1200.webp 1200w" type="image/webp">
+            <img 
+              src="img/overview-graph-600.png" 
+              srcset="img/overview-graph-600.png 600w, img/overview-graph-1200.png 1200w" 
+              sizes="(max-width:600px) 100vw, 600px" 
+              alt="Graph showing working hours per week">
+          </picture>
+          <figcaption>Working hours by week</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- Article: statistics -->
+    <article aria-labelledby="stats">
+      <section>
+        <h2 id="stats">Project Success Rate</h2>
+
+        <div class="stats-controls" role="region" aria-label="Chart controls">
+          <span class="range-label" aria-hidden="true">Last 30 days</span>
+          <label for="range-select" class="visually-hidden">Select period</label>
+          <select id="range-select" name="range" aria-controls="pie-chart issues-list">
+            <option value="7">Last 7 days</option>
+            <option value="30" selected>Last 30 days</option>
+            <option value="90">Last 90 days</option>
+          </select>
+        </div>
+
+        <figure id="pie-chart">
+          <picture>
+            <source srcset="img/pie-success-300.webp 300w, img/pie-success-600.webp 600w" type="image/webp">
+            <img 
+              src="img/pie-success-300.png" 
+              srcset="img/pie-success-300.png 300w, img/pie-success-600.png 600w" 
+              sizes="(max-width:600px) 100vw, 300px" 
+              alt="Pie chart showing 94% successful projects">
+          </picture>
+          <figcaption>Success rate for current month</figcaption>
+        </figure>
+
+        <table>
+          <caption>Projects summary for current month</caption>
+          <thead>
+            <tr>
+              <th scope="col">Status</th>
+              <th scope="col">Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Successful</th><td>15</td></tr>
+            <tr><th scope="row">Unsuccessful</th><td>1</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </article>
+
+    <!-- Aside: errors summary -->
+    <aside aria-labelledby="errors">
+      <h2 id="errors">Project Issues</h2>
+      <ul>
+        <li>System errors – 10</li>
+        <li>User errors – 5</li>
+        <li>Unfinished parts – 3</li>
+        <li>Undefined – 1</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <p>© 2025 SAO group</p>
+  </footer>
+</body>
+</html>

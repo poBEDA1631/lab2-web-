@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+</head>
+<body>
+    <header>
+        <h1>SAO</h1>
+        <nav aria-label="Головна навігація">
+            <ul>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="reports.html" aria-current="page">Reports</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+<div class="header-actions" role="group" aria-label="User actions">
+      <!-- Live toggle (каркас) -->
+      <button id="btn-live" type="button" aria-pressed="false" aria-label="Live mode" title="Live">
+        <span aria-hidden="true">●</span>
+        <span class="visually-hidden">Live mode off</span>
+      </button>
+
+      <!-- Notifications button -->
+      <button id="btn-notifications" type="button" aria-label="Оповіщення" aria-pressed="false">
+        <span aria-hidden="true">🔔</span>
+        <span class="visually-hidden">You have new messages</span>
+      </button>
+
+      <!-- Account button + menu (toggle with JS: update aria-expanded and hidden) -->
+      <button id="btn-account" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="account-menu" aria-label="Акаунт користувача">
+        <img src="img/avatar-small.png" alt="User avatar" width="24" height="24">
+      </button>
+      <ul id="account-menu" role="menu" hidden>
+        <li role="menuitem"><a href="logout.html">Logout</a></li>
+      </ul>
+    </div>            
+    </header>
+ 
+    <main id="main">
+ 
+ 
+        <aside aria-labelledby="filters">
+           <h2 id="filters">Filters</h2>
+           <form action="#" method="get" aria-label="Filter reports">
+                <!-- Поля дат в формате dd/mm/yyyy -->
+                <div role="group" aria-label="Date range">
+                    <label for="date-from">From:</label>
+                    <input id="date-from" name="date-from" type="text" inputmode="numeric" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy" aria-label="Start date dd/mm/yyyy">
+                    <label for="date-to">To:</label>
+                    <input id="date-to" name="date-to" type="text" inputmode="numeric" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy" aria-label="End date dd/mm/yyyy">
+                </div>
+
+                <!-- Кнопки select users, select project, generate report в ряд -->
+                <div role="group" aria-label="Report controls">
+                    <button id="select-users" type="button" aria-haspopup="dialog">Select users</button>
+                    <button id="select-project" type="button" aria-haspopup="dialog">Select project</button>
+                    <button id="generate-report" type="submit" aria-label="Generate report">Generate report</button>
+                </div>
+            </form>
+        </aside>
+
+        <!-- Time Distribution by project -->
+        <section aria-labelledby="time-distribution">
+            <h2 id="time-distribution">Time Distribution by project</h2>
+            <div role="img" aria-label="Time distribution chart by project">
+                <canvas id="timeChart" width="800" height="300">Your browser does not support canvas</canvas>
+            </div>
+
+            <figure>
+            <picture>
+                <source srcset="img/time-distribution-large.png" media="(min-width: 800px)">
+                <source srcset="img/time-distribution-small.png" media="(max-width: 799px)">
+                <img src="img/time-distribution.png" alt="Graphic showing time distribution across projects" width="800" height="200">
+            </picture>
+            <figcaption>Overview of time distribution by project</figcaption>
+            </figure>
+
+        </section>
+        <!-- Detailed report -->
+        <section aria-labelledby="detailed-report">
+            <h2 id="detailed-report">Detailed report</h2>
+            <table aria-describedby="detailed-report">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Project</th>
+                        <th scope="col">Task</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01/10/2025</td>
+                        <td>Website Redesign</td>
+                        <td>Design review</td>
+                        <td>Ivan Petrov</td>
+                        <td>3h 20m</td>
+                    </tr>
+                    <tr>
+                        <td>02/10/2025</td>
+                        <td>Mobile App</td>
+                        <td>API Integration</td>
+                        <td>Olena Kovalenko</td>
+                        <td>4h 10m</td>
+                    </tr>
+                    <tr>
+                        <td>03/10/2025</td>
+                        <td>Website Redesign</td>
+                        <td>Frontend fixes</td>
+                        <td>Maria Ivanova</td>
+                        <td>2h 45m</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+ 
+    </main>
+ 
+    <footer>
+        <p>© 2025 Sao group</p>
+    </footer>
+</body>
+</html>
