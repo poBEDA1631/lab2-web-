@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<%- include('partials/header', { page: 'settings', showAccount: true }) %>
+<%- include('partials/header', { page: 'settings', showAccount: false }) %>
 
 <main id="main">
 
@@ -15,7 +15,6 @@
         <h2 id="personal-settings" itemprop="name" data-i18n="settings.title">Settings</h2>
         <form action="#" method="post" aria-label="Personal settings form">
 
-            <!-- Name + Email -->
             <div class="row">
                 <label for="name" data-i18n="settings.form.name.label">Name:</label>
                 <input type="text" id="name" name="name" placeholder="" itemprop="name" data-i18n-placeholder="settings.form.name.placeholder">
@@ -24,7 +23,6 @@
                 <input type="email" id="email" name="email" placeholder="" itemprop="email" data-i18n-placeholder="settings.form.email.placeholder">
             </div>
 
-            <!-- Password -->
             <div class="row">
                 <label for="password" data-i18n="settings.form.password.label">Password:</label>
                 <input type="password" id="password" name="password" placeholder="" data-i18n-placeholder="settings.form.password.placeholder">
@@ -33,7 +31,6 @@
                 </div>
             </div>
 
-            <!-- Profile Photo -->
             <div class="row" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                 <div>
                     <span data-i18n="settings.profile.photo.title">Profile Photo</span>
@@ -52,7 +49,6 @@
                 </div>
             </div>
 
-            <!-- Notifications -->
             <h3 data-i18n="settings.notifications.title">Notifications</h3>
             <div role="group" aria-label="Notification settings">
                 <label for="notif-email">
@@ -66,7 +62,6 @@
                 </label>
             </div>
 
-            <!-- Billing -->
             <article aria-labelledby="billing-info">
                 <h3 id="billing-info" data-i18n="settings.billing.title">Billing</h3>
                 <div data-i18n="settings.billing.subscription">Subscription: Premium Plan</div>
@@ -76,7 +71,6 @@
                 <div data-i18n="settings.billing.payment_options">Payment Options: Visa **** 1488</div>
             </article>
 
-            <!-- Main action -->
             <div>
                 <button type="submit" id="save-changes" data-i18n="settings.actions.save">Save Changes</button>
             </div>

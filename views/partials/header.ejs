@@ -20,20 +20,17 @@
 
   <div class="header-actions" role="group" aria-label="User actions">
 
-    <!-- Live toggle -->
     <button id="btn-live" type="button" aria-pressed="false" aria-label="Live mode" title="Live">
       <span aria-hidden="true">●</span>
       <span class="visually-hidden" data-i18n="header.liveModeOff">Live mode off</span>
     </button>
 
-    <!-- Notifications -->
     <button id="btn-notifications" type="button" aria-label="Notifications" aria-pressed="false">
       <span aria-hidden="true">🔔</span>
       <span class="visually-hidden" data-i18n="header.notifications">You have new messages</span>
     </button>
 
     <% if (showAccount) { %>
-    <!-- Account -->
     <button id="btn-account" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="account-menu" aria-label="User account">
       <img src="img/avatar-small.png" alt="User avatar" width="24" height="24">
     </button>
@@ -44,7 +41,6 @@
     </ul>
     <% } %>
 
-    <!-- Language switcher -->
     <div id="lang-switcher">
       <button type="button" onclick="setLanguage('en')">EN</button>
       <button type="button" onclick="setLanguage('uk')">UK</button>
@@ -54,6 +50,5 @@
 
 <script src="/translations.js"></script>
 <script>
-  // Set default language
   setLanguage('en');
 </script>

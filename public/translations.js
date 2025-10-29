@@ -1,4 +1,3 @@
-// translations.js
 const translations = {
     en: {
         app: {
@@ -370,10 +369,8 @@ const translations = {
     }
 };
 
-// Поточна мова
 let currentLang = 'en';
 
-// Функція зміни мови
 function setLanguage(lang) {
     if (!translations[lang]) return;
     currentLang = lang;
