@@ -1,0 +1,49 @@
+@use '../abstracts/variables' as *;
+@use 'sass:color';
+
+.btn {
+    display: inline-block;
+    padding: $spacing-unit (
+        $spacing-unit * 2
+    );
+border: none;
+border-radius: 4px;
+cursor: pointer;
+text-decoration: none;
+font-size: 1rem;
+transition: background-color 0.3s ease;
+
+&--primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+        background-color: color.adjust($color-primary, $lightness: -10%);
+    }
+}
+
+&--secondary {
+    background-color: $color-secondary;
+    color: $color-white;
+
+    &:hover {
+        background-color: color.adjust($color-secondary, $lightness: -10%);
+    }
+}
+
+&--outline {
+    background-color: transparent;
+    border: 1px solid $color-primary;
+    color: $color-primary;
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+    }
+}
+
+&--large {
+    padding: ($spacing-unit * 1.5) ($spacing-unit * 3);
+    font-size: 1.2rem;
+}
+}

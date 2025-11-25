@@ -1,86 +1,159 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title itemprop="name" data-i18n="reports.page.title">Reports | SAO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title itemprop="name" data-i18n="reports.page.title">Reports | SAO</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<%- include('partials/header', { page: 'reports', showAccount: true }) %>
+    <%- include('partials/header', { page: 'reports' , showAccount: true }) %>
 
-<main id="main">
+        <main id="main" class="container">
 
-  <aside aria-labelledby="filters">
-    <h2 id="filters" data-i18n="reports.filters.title">Filters</h2>
-    <form action="#" method="get" aria-label="Filter reports">
-      <div role="group" aria-label="Date range">
-        <label for="date-from" data-i18n="reports.filters.from_label">From:</label>
-        <input id="date-from" name="date-from" type="text" placeholder="dd/mm/yyyy" data-i18n-placeholder="reports.filters.from_placeholder">
-        <label for="date-to" data-i18n="reports.filters.to_label">To:</label>
-        <input id="date-to" name="date-to" type="text" placeholder="dd/mm/yyyy" data-i18n-placeholder="reports.filters.to_placeholder">
-      </div>
+            <div class="row">
+                <div class="col-12">
+                    <aside aria-labelledby="filters" class="card mb-4">
+                        <div class="card__content reports-filters">
+                            <h2 id="filters" class="card__title" data-i18n="reports.filters.title">Filters</h2>
+                            <form action="#" method="get" aria-label="Filter reports">
+                                <div role="group" aria-label="Date range" class="mb-3">
+                                    <label for="date-from" class="d-block mb-1"
+                                        data-i18n="reports.filters.from_label">From:</label>
+                                    <input id="date-from" name="date-from" type="text" placeholder="dd/mm/yyyy"
+                                        data-i18n-placeholder="reports.filters.from_placeholder" class="p-1 mb-2"
+                                        style="width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                                    <label for="date-to" class="d-block mb-1"
+                                        data-i18n="reports.filters.to_label">To:</label>
+                                    <input id="date-to" name="date-to" type="text" placeholder="dd/mm/yyyy"
+                                        data-i18n-placeholder="reports.filters.to_placeholder" class="p-1"
+                                        style="width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                                </div>
 
-      <div role="group" aria-label="Report controls">
-        <button id="select-users" type="button" data-i18n="reports.filters.select_users">Select users</button>
-        <button id="select-project" type="button" data-i18n="reports.filters.select_project">Select project</button>
-        <button id="generate-report" type="submit" data-i18n="reports.filters.generate_report">Generate report</button>
-      </div>
-    </form>
-  </aside>
+                                <div role="group" aria-label="Report controls" class="d-flex flex-column"
+                                    style="gap: 0.5rem;">
+                                    <button id="select-users" type="button" class="btn btn--outline"
+                                        style="width: 100%;" data-i18n="reports.filters.select_users">Select
+                                        users</button>
+                                    <button id="select-project" type="button" class="btn btn--outline"
+                                        style="width: 100%;" data-i18n="reports.filters.select_project">Select
+                                        project</button>
+                                    <button id="generate-report" type="submit" class="btn btn--primary mt-2"
+                                        style="width: 100%;" data-i18n="reports.filters.generate_report">Generate
+                                        report</button>
+                                </div>
+                            </form>
+                        </div>
+                    </aside>
+                </div>
 
-  <section aria-labelledby="time-distribution">
-    <h2 id="time-distribution" data-i18n="reports.time_distribution.title">Time Distribution by project</h2>
-    <div role="img" aria-label="Time distribution chart by project">
-      <canvas id="timeChart" width="800" height="300"></canvas>
-    </div>
-  </section>
+                <div class="col-12">
+                    <section aria-labelledby="time-distribution" class="card mb-4">
+                        <div class="card__content">
+                            <h2 id="time-distribution" class="card__title" data-i18n="reports.time_distribution.title">
+                                Time Distribution by project</h2>
+                            <div role="img" aria-label="Time distribution chart by project" class="text-center">
+                                <canvas id="timeChart" width="800" height="300"
+                                    style="max-width: 100%; height: auto;"></canvas>
+                            </div>
+                        </div>
+                    </section>
 
-  <section aria-labelledby="detailed-report" itemscope itemtype="https://schema.org/ItemList" itemprop="mainEntity">
-    <h2 id="detailed-report" itemprop="name" data-i18n="reports.detailed_report.title">Detailed report</h2>
-    <table>
-      <thead>
-        <tr>
-          <th scope="col" data-i18n="reports.table.project">Project</th>
-          <th scope="col" data-i18n="reports.table.task">Task</th>
-          <th scope="col" data-i18n="reports.table.user">User</th>
-          <th scope="col" data-i18n="reports.table.time">Time</th>
-        </tr>
-      </thead>
-      <tbody>
+                    <section aria-labelledby="detailed-report" itemscope itemtype="https://schema.org/ItemList"
+                        itemprop="mainEntity" class="card">
+                        <div class="card__content">
+                            <h2 id="detailed-report" itemprop="name" class="card__title"
+                                data-i18n="reports.detailed_report.title">Detailed report</h2>
+                            <div style="overflow-x: auto;">
+                                <table class="detailed-table" style="width: 100%; border-collapse: collapse;">
+                                    <thead>
+                                        <tr style="border-bottom: 2px solid #eee;">
+                                            <th scope="col" class="p-2 text-left" data-i18n="reports.table.project">
+                                                Project</th>
+                                            <th scope="col" class="p-2 text-left" data-i18n="reports.table.task">Task
+                                            </th>
+                                            <th scope="col" class="p-2 text-left" data-i18n="reports.table.user">User
+                                            </th>
+                                            <th scope="col" class="p-2 text-left" data-i18n="reports.table.time">Time
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-        <tr itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
-          <td itemprop="item" itemscope itemtype="https://schema.org/CreativeWork">
-            <span itemprop="name" data-i18n="reports.projects.project1.name">Website Redesign</span>
-            <meta itemprop="about" content="Design review" data-i18n="reports.projects.project1.task">
-            <meta itemprop="creator" content="Ivan Petrov" data-i18n="reports.projects.project1.user">
-            <meta itemprop="timeRequired" content="PT3H20M" data-i18n="reports.projects.project1.time">
-          </td>
-        </tr>
+                                        <tr itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"
+                                            style="border-bottom: 1px solid #eee;">
+                                            <td itemprop="item" itemscope itemtype="https://schema.org/CreativeWork"
+                                                class="p-2">
+                                                <span itemprop="name" data-i18n="reports.projects.project1.name">Website
+                                                    Redesign</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="about" data-i18n="reports.projects.project1.task">Design
+                                                    review</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="creator" data-i18n="reports.projects.project1.user">Ivan
+                                                    Petrov</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="timeRequired"
+                                                    data-i18n="reports.projects.project1.time">3h 20m</span>
+                                            </td>
+                                        </tr>
 
-        <tr itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
-          <td itemprop="item" itemscope itemtype="https://schema.org/CreativeWork">
-            <span itemprop="name" data-i18n="reports.projects.project2.name">Mobile App</span>
-            <meta itemprop="about" content="API Integration" data-i18n="reports.projects.project2.task">
-            <meta itemprop="creator" content="Olena Kovalenko" data-i18n="reports.projects.project2.user">
-            <meta itemprop="timeRequired" content="PT4H10M" data-i18n="reports.projects.project2.time">
-          </td>
-        </tr>
+                                        <tr itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"
+                                            style="border-bottom: 1px solid #eee;">
+                                            <td itemprop="item" itemscope itemtype="https://schema.org/CreativeWork"
+                                                class="p-2">
+                                                <span itemprop="name" data-i18n="reports.projects.project2.name">Mobile
+                                                    App</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="about" data-i18n="reports.projects.project2.task">API
+                                                    Integration</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="creator"
+                                                    data-i18n="reports.projects.project2.user">Olena Kovalenko</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="timeRequired"
+                                                    data-i18n="reports.projects.project2.time">4h 10m</span>
+                                            </td>
+                                        </tr>
 
-        <tr itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
-          <td itemprop="item" itemscope itemtype="https://schema.org/CreativeWork">
-            <span itemprop="name" data-i18n="reports.projects.project3.name">Website Redesign</span>
-            <meta itemprop="about" content="Frontend fixes" data-i18n="reports.projects.project3.task">
-            <meta itemprop="creator" content="Maria Ivanova" data-i18n="reports.projects.project3.user">
-            <meta itemprop="timeRequired" content="PT2H45M" data-i18n="reports.projects.project3.time">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+                                        <tr itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
+                                            <td itemprop="item" itemscope itemtype="https://schema.org/CreativeWork"
+                                                class="p-2">
+                                                <span itemprop="name" data-i18n="reports.projects.project3.name">Website
+                                                    Redesign</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="about"
+                                                    data-i18n="reports.projects.project3.task">Frontend fixes</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="creator"
+                                                    data-i18n="reports.projects.project3.user">Maria Ivanova</span>
+                                            </td>
+                                            <td class="p-2">
+                                                <span itemprop="timeRequired"
+                                                    data-i18n="reports.projects.project3.time">2h 45m</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
 
-</main>
-
-<%- include('partials/footer') %>
+        </main>
+        <%- include('partials/footer') %>
 </body>
+
 </html>

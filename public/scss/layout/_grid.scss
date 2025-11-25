@@ -1,0 +1,48 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:math';
+
+.container {
+    @include container;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$spacing-unit;
+    margin-right: -$spacing-unit;
+}
+
+[class^="col-"] {
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+    width: 100%;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        flex: 0 0 math.percentage(math.div($i, 12));
+        max-width: math.percentage(math.div($i, 12));
+    }
+}
+
+// Responsive Columns
+// Medium devices (tablets, 768px and up) - actually we want this for Desktop to keep side-by-side
+// and stack on tablet/mobile. So we use min-width here.
+@media (min-width: $breakpoint-tablet + 1px) {
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            flex: 0 0 math.percentage(math.div($i, 12));
+            max-width: math.percentage(math.div($i, 12));
+        }
+    }
+}
+
+@include respond-to(mobile) {
+    @for $i from 1 through 12 {
+        .col-sm-#{$i} {
+            flex: 0 0 math.percentage(math.div($i, 12));
+            max-width: math.percentage(math.div($i, 12));
+        }
+    }
+}

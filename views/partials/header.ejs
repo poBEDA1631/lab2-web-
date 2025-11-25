@@ -1,54 +1,79 @@
-<header>
-  <h1 data-i18n="app.title">SAO</h1>
-  
-  <nav aria-label="Main navigation">
-    <ul>
-      <li>
-        <a href="/" <%= page === 'overview' ? 'aria-current="page"' : '' %> data-i18n="overview.title">Overview</a>
-      </li>
-      <li>
-        <a href="/projects" <%= page === 'projects' ? 'aria-current="page"' : '' %> data-i18n="projects.title">Projects</a>
-      </li>
-      <li>
-        <a href="/reports" <%= page === 'reports' ? 'aria-current="page"' : '' %> data-i18n="reports.title">Reports</a>
-      </li>
-      <li>
-        <a href="/settings" <%= page === 'settings' ? 'aria-current="page"' : '' %> data-i18n="settings.title">Settings</a>
-      </li>
-    </ul>
-  </nav>
+<header class="header">
+    <div class="header__container">
+        <h1 class="header__logo" data-i18n="app.title">SAO</h1>
 
-  <div class="header-actions" role="group" aria-label="User actions">
+        <nav class="nav" aria-label="Main navigation">
+            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-icon"></span>
+            </button>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="/" class="nav__link <%= page === 'overview' ? 'nav__link--active' : '' %>"
+                        <%=page==='overview' ? 'aria-current="page"' : '' %> data-i18n="overview.title">Overview</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/projects" class="nav__link <%= page === 'projects' ? 'nav__link--active' : '' %>"
+                        <%=page==='projects' ? 'aria-current="page"' : '' %> data-i18n="projects.title">Projects</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/reports" class="nav__link <%= page === 'reports' ? 'nav__link--active' : '' %>"
+                        <%=page==='reports' ? 'aria-current="page"' : '' %> data-i18n="reports.title">Reports</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/settings" class="nav__link <%= page === 'settings' ? 'nav__link--active' : '' %>"
+                        <%=page==='settings' ? 'aria-current="page"' : '' %> data-i18n="settings.title">Settings</a>
+                </li>
+            </ul>
+        </nav>
 
-    <button id="btn-live" type="button" aria-pressed="false" aria-label="Live mode" title="Live">
-      <span aria-hidden="true">●</span>
-      <span class="visually-hidden" data-i18n="header.liveModeOff">Live mode off</span>
-    </button>
+        <div class="header-actions d-flex" role="group" aria-label="User actions">
 
-    <button id="btn-notifications" type="button" aria-label="Notifications" aria-pressed="false">
-      <span aria-hidden="true">🔔</span>
-      <span class="visually-hidden" data-i18n="header.notifications">You have new messages</span>
-    </button>
+            <button id="btn-live" type="button" class="btn btn--outline m-1" aria-pressed="false" aria-label="Live mode"
+                title="Live">
+                <span aria-hidden="true">●</span>
+                <span class="visually-hidden" data-i18n="header.liveModeOff">Live mode off</span>
+            </button>
 
-    <% if (showAccount) { %>
-    <button id="btn-account" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="account-menu" aria-label="User account">
-      <img src="img/avatar-small.png" alt="User avatar" width="24" height="24">
-    </button>
-    <ul id="account-menu" role="menu" hidden>
-      <li role="menuitem">
-        <a href="logout.html" data-i18n="header.logout">Logout</a>
-      </li>
-    </ul>
-    <% } %>
+            <button id="btn-notifications" type="button" class="btn btn--outline m-1" aria-label="Notifications"
+                aria-pressed="false">
+                <span aria-hidden="true">🔔</span>
+                <span class="visually-hidden" data-i18n="header.notifications">You have new messages</span>
+            </button>
 
-    <div id="lang-switcher">
-      <button type="button" onclick="setLanguage('en')">EN</button>
-      <button type="button" onclick="setLanguage('uk')">UK</button>
+            <% if (showAccount) { %>
+                <button id="btn-account" type="button" class="btn btn--outline m-1" aria-haspopup="true"
+                    aria-expanded="false" aria-controls="account-menu" aria-label="User account">
+                    <img src="img/avatar-small.png" alt="User avatar" width="24" height="24">
+                </button>
+                <ul id="account-menu" role="menu" hidden>
+                    <li role="menuitem">
+                        <a href="logout.html" data-i18n="header.logout">Logout</a>
+                    </li>
+                </ul>
+                <% } %>
+
+                    <div id="lang-switcher" class="ml-2">
+                        <button type="button" class="btn btn--secondary" onclick="setLanguage('en')">EN</button>
+                        <button type="button" class="btn btn--secondary" onclick="setLanguage('uk')">UK</button>
+                    </div>
+        </div>
     </div>
-  </div>
 </header>
 
 <script src="/translations.js"></script>
 <script>
-  setLanguage('en');
+    setLanguage('en');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const navToggle = document.querySelector('.nav__toggle');
+        const navList = document.querySelector('.nav__list');
+
+        if (navToggle && navList) {
+            navToggle.addEventListener('click', () => {
+                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                navToggle.setAttribute('aria-expanded', !isExpanded);
+                navList.classList.toggle('nav__list--active');
+            });
+        }
+    });
 </script>

@@ -1,0 +1,122 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.nav {
+    display: flex;
+    align-items: center;
+
+    &__toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 101;
+
+        @include respond-to(tablet) {
+            display: block;
+        }
+
+        &-icon {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: $color-text;
+            position: relative;
+            transition: background-color 0.3s;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $color-text;
+                transition: transform 0.3s;
+            }
+
+            &::before {
+                transform: translateY(-8px);
+            }
+
+            &::after {
+                transform: translateY(8px);
+            }
+        }
+
+        &[aria-expanded="true"] .nav__toggle-icon {
+            background-color: transparent;
+
+            &::before {
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        gap: $spacing-unit * 2;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        // Mobile hiding removed as per request
+
+        @include respond-to(tablet) {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: $spacing-unit * 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            gap: $spacing-unit;
+
+            &--active {
+                display: flex;
+            }
+        }
+    }
+
+    &__item {
+        position: relative;
+    }
+
+    &__link {
+        color: $color-text;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        text-decoration: none;
+        display: block;
+        padding: 0.5rem 0;
+
+        &:hover {
+            color: $color-primary;
+        }
+
+        &--active {
+            color: $color-primary;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $color-primary;
+
+                @include respond-to(tablet) {
+                    display: none; // Hide underline on mobile/tablet
+                }
+            }
+        }
+    }
+}

@@ -1,101 +1,134 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title itemprop="name" data-i18n="overview.page.title">Overview | SAO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title itemprop="name" data-i18n="overview.page.title">Overview | SAO</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<%- include('partials/header', { page: 'overview', showAccount: true }) %>
+    <%- include('partials/header', { page: 'overview' , showAccount: true }) %>
 
-<main id="main" itemprop="mainEntity" itemscope itemtype="https://schema.org/Article">
+        <main id="main" class="container" itemprop="mainEntity" itemscope itemtype="https://schema.org/Article">
 
-  <article aria-labelledby="summary" itemprop="articleBody">
-    <meta itemprop="author" content="SAO Analytics Team">
-    <meta itemprop="datePublished" content="2025-10-27">
-    <meta itemprop="headline" content="Monthly Work Overview">
-    <section>
-      <h2 id="summary" data-i18n="overview.summary.heading">Work Summary</h2>
-      <p data-i18n="overview.summary.hoursWorked">
-        You worked 160 hours this month.
-      </p>
+            <div class="row">
+                <div class="col-12">
+                    <article aria-labelledby="summary" itemprop="articleBody" class="card mb-4">
+                        <div class="card__content">
+                            <meta itemprop="author" content="SAO Analytics Team">
+                            <meta itemprop="datePublished" content="2025-10-27">
+                            <meta itemprop="headline" content="Monthly Work Overview">
+                            <section>
+                                <h2 id="summary" class="card__title" data-i18n="overview.summary.heading">Work Summary
+                                </h2>
+                                <p class="card__text" data-i18n="overview.summary.hoursWorked">
+                                    You worked 160 hours this month.
+                                </p>
 
-      <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <picture>
-          <source srcset="img/overview-graph-600.webp 600w, img/overview-graph-1200.webp 1200w" type="image/webp">
-          <img
-            src="img/overview-graph-600.png" 
-            srcset="img/overview-graph-600.png 600w, img/overview-graph-1200.png 1200w" 
-            sizes="(max-width:600px) 100vw, 600px" 
-            alt="Graph showing working hours per week"
-            itemprop="url">
-        </picture>
-        <figcaption itemprop="caption" data-i18n="overview.summary.caption">
-          Working hours by week
-        </figcaption>
-      </figure>
-    </section>
-  </article>
+                                <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                                    <picture>
+                                        <source
+                                            srcset="img/overview-graph-600.webp 600w, img/overview-graph-1200.webp 1200w"
+                                            type="image/webp">
+                                        <img src="img/overview-graph-600.png"
+                                            srcset="img/overview-graph-600.png 600w, img/overview-graph-1200.png 1200w"
+                                            sizes="(max-width:600px) 100vw, 600px"
+                                            alt="Graph showing working hours per week" class="img-responsive"
+                                            itemprop="url">
+                                    </picture>
+                                    <figcaption itemprop="caption" class="text-center mt-2"
+                                        data-i18n="overview.summary.caption">
+                                        Working hours by week
+                                    </figcaption>
+                                </figure>
+                            </section>
+                        </div>
+                    </article>
+                </div>
 
-  <article aria-labelledby="stats" itemprop="articleBody">
-    <section>
-      <h2 id="stats" data-i18n="overview.stats.heading">Project Success Rate</h2>
+                <div class="col-12">
+                    <article aria-labelledby="stats" itemprop="articleBody" class="card mb-4">
+                        <div class="card__content">
+                            <section>
+                                <h2 id="stats" class="card__title" data-i18n="overview.stats.heading">Project Success
+                                    Rate</h2>
 
-      <div class="stats-controls" role="region" aria-label="Chart controls">
-        <span class="range-label" aria-hidden="true" data-i18n="overview.stats.rangeLabel">Last 30 days</span>
-        <label for="range-select" class="visually-hidden" data-i18n="overview.stats.selectLabel">Select period</label>
-        <select id="range-select" name="range" aria-controls="pie-chart issues-list">
-          <option value="7" data-i18n="overview.stats.range.7days">Last 7 days</option>
-          <option value="30" selected data-i18n="overview.stats.range.30days">Last 30 days</option>
-          <option value="90" data-i18n="overview.stats.range.90days">Last 90 days</option>
-        </select>
-      </div>
+                                <div class="stats-controls mb-3" role="region" aria-label="Chart controls">
+                                    <span class="range-label" aria-hidden="true"
+                                        data-i18n="overview.stats.rangeLabel">Last 30 days</span>
+                                    <label for="range-select" class="visually-hidden"
+                                        data-i18n="overview.stats.selectLabel">Select period</label>
+                                    <select id="range-select" name="range" aria-controls="pie-chart issues-list"
+                                        class="p-1">
+                                        <option value="7" data-i18n="overview.stats.range.7days">Last 7 days</option>
+                                        <option value="30" selected data-i18n="overview.stats.range.30days">Last 30 days
+                                        </option>
+                                        <option value="90" data-i18n="overview.stats.range.90days">Last 90 days</option>
+                                    </select>
+                                </div>
 
-      <figure id="pie-chart" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <picture>
-          <source srcset="img/pie-success-300.webp 300w, img/pie-success-600.webp 600w" type="image/webp">
-          <img 
-            src="img/pie-success-300.png" 
-            srcset="img/pie-success-300.png 300w, img/pie-success-600.png 600w" 
-            sizes="(max-width:600px) 100vw, 300px" 
-            alt="Pie chart showing 94% successful projects"
-            itemprop="url">
-        </picture>
-        <figcaption itemprop="caption" data-i18n="overview.stats.caption">
-          Success rate for current month
-        </figcaption>
-      </figure>
+                                <figure id="pie-chart" itemprop="image" itemscope
+                                    itemtype="https://schema.org/ImageObject" class="text-center">
+                                    <picture>
+                                        <source srcset="img/pie-success-300.webp 300w, img/pie-success-600.webp 600w"
+                                            type="image/webp">
+                                        <img src="img/pie-success-300.png"
+                                            srcset="img/pie-success-300.png 300w, img/pie-success-600.png 600w"
+                                            sizes="(max-width:600px) 100vw, 300px"
+                                            alt="Pie chart showing 94% successful projects" class="img-responsive"
+                                            style="max-height: 200px; margin: 0 auto;" itemprop="url">
+                                    </picture>
+                                    <figcaption itemprop="caption" class="mt-2" data-i18n="overview.stats.caption">
+                                        Success rate for current month
+                                    </figcaption>
+                                </figure>
 
-      <table itemprop="about" itemscope itemtype="https://schema.org/Table">
-        <caption data-i18n="overview.stats.table.caption">Projects summary</caption>
-        <thead>
-          <tr>
-            <th scope="col" data-i18n="overview.stats.table.status">Status</th>
-            <th scope="col" data-i18n="overview.stats.table.count">Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row" data-i18n="overview.stats.table.successful">Successful</th><td>15</td></tr>
-          <tr><th scope="row" data-i18n="overview.stats.table.unsuccessful">Unsuccessful</th><td>1</td></tr>
-        </tbody>
-      </table>
-    </section>
-  </article>
+                                <!-- Success Stats -->
+                                <div class="success-stats mt-4 mb-4">
+                                    <div class="success-stat-item">
+                                        <div class="d-flex">
+                                            <span class="dot dot--successful"></span>
+                                            <span class="stat-number">15</span>
+                                        </div>
+                                        <span class="stat-label"
+                                            data-i18n="overview.stats.table.successful">Successful</span>
+                                    </div>
+                                    <div class="success-stat-item">
+                                        <div class="d-flex">
+                                            <span class="dot dot--unsuccessful"></span>
+                                            <span class="stat-number">1</span>
+                                        </div>
+                                        <span class="stat-label"
+                                            data-i18n="overview.stats.table.unsuccessful">Unsuccessful</span>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </article>
 
-  <aside aria-labelledby="errors" itemprop="mentions" itemscope itemtype="https://schema.org/ItemList">
-    <h2 id="errors" data-i18n="overview.errors.heading">Project Issues</h2>
-    <meta itemprop="name" content="Project Issues Summary">
-    <ul>
-      <li itemprop="itemListElement" data-i18n="overview.errors.system">System errors – 10</li>
-      <li itemprop="itemListElement" data-i18n="overview.errors.user">User errors – 5</li>
-      <li itemprop="itemListElement" data-i18n="overview.errors.unfinished">Unfinished parts – 3</li>
-      <li itemprop="itemListElement" data-i18n="overview.errors.undefined">Undefined – 1</li>
-    </ul>
-  </aside>
+                    <aside aria-labelledby="errors" itemprop="mentions" itemscope itemtype="https://schema.org/ItemList"
+                        class="card">
+                        <div class="card__content">
+                            <h2 id="errors" class="card__title" data-i18n="overview.errors.heading">Project Issues</h2>
+                            <meta itemprop="name" content="Project Issues Summary">
+                            <ul class="issues-list">
+                                <li itemprop="itemListElement" data-i18n="overview.errors.system">System errors – 10
+                                </li>
+                                <li itemprop="itemListElement" data-i18n="overview.errors.user">User errors – 5</li>
+                                <li itemprop="itemListElement" data-i18n="overview.errors.unfinished">Unfinished parts –
+                                    3</li>
+                                <li itemprop="itemListElement" data-i18n="overview.errors.undefined">Undefined – 1</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
 
-</main>
-
-<%- include('partials/footer') %>
+        </main>
+        <%- include('partials/footer') %>
 </body>
+
 </html>

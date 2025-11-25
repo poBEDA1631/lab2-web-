@@ -1,0 +1,57 @@
+@use 'variables' as *;
+
+// Media Query Manager
+@mixin respond-to($breakpoint) {
+    @if $breakpoint ==mobile {
+        @media (max-width: $breakpoint-mobile) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==tablet {
+        @media (max-width: $breakpoint-tablet) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==desktop {
+        @media (max-width: $breakpoint-desktop) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (max-width: $breakpoint) {
+            @content;
+        }
+    }
+}
+
+// Flex Center
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Flex Column
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Typography
+@mixin heading-style($size, $weight: 700) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: 1.2;
+    margin-bottom: $spacing-unit * 2;
+}
+
+// Container
+@mixin container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-unit * 2;
+    width: 100%;
+}

@@ -1,0 +1,86 @@
+@use '../abstracts/variables' as *;
+
+// Spacing Utilities
+@for $i from 0 through 5 {
+    .m-#{$i} {
+        margin: $spacing-unit * $i !important;
+    }
+
+    .mt-#{$i} {
+        margin-top: $spacing-unit * $i !important;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: $spacing-unit * $i !important;
+    }
+
+    .ml-#{$i} {
+        margin-left: $spacing-unit * $i !important;
+    }
+
+    .mr-#{$i} {
+        margin-right: $spacing-unit * $i !important;
+    }
+
+    .p-#{$i} {
+        padding: $spacing-unit * $i !important;
+    }
+
+    .pt-#{$i} {
+        padding-top: $spacing-unit * $i !important;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: $spacing-unit * $i !important;
+    }
+
+    .pl-#{$i} {
+        padding-left: $spacing-unit * $i !important;
+    }
+
+    .pr-#{$i} {
+        padding-right: $spacing-unit * $i !important;
+    }
+}
+
+// Visibility
+.d-none {
+    display: none !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+// Text Alignment
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+// Print Styles
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        color: black;
+        background: white;
+    }
+
+    a::after {
+        content: " (" attr(href) ")";
+    }
+}

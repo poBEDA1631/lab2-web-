@@ -1,0 +1,107 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.overview-page {
+    // Scoped styles if needed
+}
+
+// Stats Controls
+.stats-controls {
+    display: flex;
+    align-items: center;
+    gap: $spacing-unit;
+    background-color: $color-light;
+    padding: $spacing-unit;
+    border-radius: 8px;
+
+    .range-label {
+        font-weight: bold;
+        color: $color-secondary;
+    }
+
+    select {
+        border: 1px solid $color-secondary;
+        border-radius: 4px;
+        padding: 4px 8px;
+        background-color: $color-white;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $color-primary;
+        }
+    }
+}
+
+// Success Stats (below pie chart)
+.success-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 $spacing-unit;
+
+    .success-stat-item {
+        text-align: center;
+
+        .d-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+
+            &--successful {
+                background-color: #4CAF50; // Green
+            }
+
+            &--unsuccessful {
+                background-color: #C8E6C9; // Light Green
+            }
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: $color-text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: $color-text;
+            display: block;
+        }
+    }
+}
+
+// Project Issues List
+.issues-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: $spacing-unit;
+        border-bottom: 1px solid $color-light;
+        display: flex;
+        justify-content: flex-start; // Left align
+        align-items: center;
+        gap: $spacing-unit; // Space between dot and text
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &::before {
+            content: '•';
+            color: $color-primary;
+            font-weight: bold;
+            display: inline-block;
+        }
+    }
+}

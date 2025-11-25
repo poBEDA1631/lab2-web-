@@ -1,0 +1,20 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.home {
+    padding: $spacing-unit * 4 0;
+
+    &__hero {
+        text-align: center;
+        margin-bottom: $spacing-unit * 6;
+    }
+
+    &__title {
+        margin-bottom: $spacing-unit * 2;
+        color: $color-primary;
+    }
+
+    &__grid {
+        margin-top: $spacing-unit * 4;
+    }
+}

@@ -1,0 +1,63 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.reports-filters {
+    background-color: $color-light;
+    padding: $spacing-unit * 2;
+    border-radius: 8px;
+
+    label {
+        font-weight: 600;
+        color: $color-secondary;
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid darken($color-light, 10%);
+        border-radius: 4px;
+        margin-bottom: $spacing-unit;
+
+        &:focus {
+            border-color: $color-primary;
+            outline: none;
+        }
+    }
+}
+
+.detailed-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    th {
+        background-color: $color-light;
+        padding: $spacing-unit;
+        font-weight: 600;
+        text-align: left;
+        color: $color-text;
+
+        &:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 8px;
+        }
+    }
+
+    td {
+        padding: $spacing-unit;
+        border-bottom: 1px solid $color-light;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tbody tr:hover {
+        background-color: lighten($color-light, 5%);
+    }
+}

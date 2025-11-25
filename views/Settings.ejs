@@ -1,85 +1,126 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title itemprop="name" data-i18n="settings.page.title">Settings | SAO</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<%- include('partials/header', { page: 'settings', showAccount: false }) %>
+    <%- include('partials/header', { page: 'settings' , showAccount: false }) %>
 
-<main id="main">
+        <main id="main" class="container">
+            <h2 id="personal-settings" itemprop="name" class="mb-3" data-i18n="settings.title">Settings</h2>
+            <section aria-labelledby="personal-settings" itemscope itemtype="https://schema.org/Person"
+                itemprop="mainEntity" class="card">
+                <div class="card__content">
+                    <form action="#" method="post" aria-label="Personal settings form" class="settings-form">
 
-    <section aria-labelledby="personal-settings" itemscope itemtype="https://schema.org/Person" itemprop="mainEntity">
-        <h2 id="personal-settings" itemprop="name" data-i18n="settings.title">Settings</h2>
-        <form action="#" method="post" aria-label="Personal settings form">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name" class="d-block mb-1"
+                                        data-i18n="settings.form.name.label">Name:</label>
+                                    <input type="text" id="name" name="name" placeholder="Enter name" itemprop="name"
+                                        data-i18n-placeholder="settings.form.name.placeholder" class="p-1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" class="d-block mb-1"
+                                        data-i18n="settings.form.email.label">Email:</label>
+                                    <input type="email" id="email" name="email" placeholder="example@mail.com"
+                                        itemprop="email" data-i18n-placeholder="settings.form.email.placeholder"
+                                        class="p-1">
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="row">
-                <label for="name" data-i18n="settings.form.name.label">Name:</label>
-                <input type="text" id="name" name="name" placeholder="" itemprop="name" data-i18n-placeholder="settings.form.name.placeholder">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password" class="d-block mb-1"
+                                        data-i18n="settings.form.password.label">Password:</label>
+                                    <input type="password" id="password" name="password" placeholder="••••••••"
+                                        data-i18n-placeholder="settings.form.password.placeholder" class="p-1 mb-2">
+                                    <div>
+                                        <button type="button" id="change-password" class="btn btn--outline"
+                                            data-i18n="settings.form.password.change">Change Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                <label for="email" data-i18n="settings.form.email.label">Email:</label>
-                <input type="email" id="email" name="email" placeholder="" itemprop="email" data-i18n-placeholder="settings.form.email.placeholder">
-            </div>
+                        <div class="row mb-4" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                            <div class="col-md-12">
+                                <span class="d-block mb-2 font-weight-bold"
+                                    data-i18n="settings.profile.photo.title">Profile Photo</span>
+                                <div class="d-flex align-items-center" style="gap: 1rem;">
+                                    <div aria-hidden="true">
+                                        <picture>
+                                            <source srcset="img/profile-placeholder.webp" type="image/webp">
+                                            <img src="img/profile-placeholder.png" alt="Profile photo" width="80"
+                                                height="80" itemprop="contentUrl" style="border-radius: 50%;">
+                                        </picture>
+                                    </div>
+                                    <div>
+                                        <label for="photo-upload">
+                                            <input id="photo-upload" name="photo" type="file" accept="image/*" hidden>
+                                            <button type="button" class="btn btn--secondary"
+                                                onclick="document.getElementById('photo-upload').click()"
+                                                data-i18n="settings.profile.photo.upload">Upload New Photo</button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="row">
-                <label for="password" data-i18n="settings.form.password.label">Password:</label>
-                <input type="password" id="password" name="password" placeholder="" data-i18n-placeholder="settings.form.password.placeholder">
-                <div>
-                    <button type="button" id="change-password" data-i18n="settings.form.password.change">Change Password</button>
+                        <hr class="mb-4" style="border: 0; border-top: 1px solid #eee;">
+
+                        <h3 class="mb-3" data-i18n="settings.notifications.title">Notifications</h3>
+                        <div role="group" aria-label="Notification settings" class="mb-4">
+                            <label for="notif-email" class="notification-toggle">
+                                <span data-i18n="settings.notifications.email">Email Reminders</span>
+                                <input id="notif-email" name="notif-email" type="checkbox" role="switch"
+                                    aria-checked="true" checked>
+                            </label>
+
+                            <label for="notif-reports" class="notification-toggle">
+                                <span data-i18n="settings.notifications.reports">Reports</span>
+                                <input id="notif-reports" name="notif-reports" type="checkbox" role="switch"
+                                    aria-checked="false">
+                            </label>
+                        </div>
+
+                        <hr class="mb-4" style="border: 0; border-top: 1px solid #eee;">
+
+                        <article aria-labelledby="billing-info" class="mb-4">
+                            <h3 id="billing-info" class="mb-3" data-i18n="settings.billing.title">Billing</h3>
+                            <div class="mb-2" data-i18n="settings.billing.subscription">Subscription: <strong>Premium
+                                    Plan</strong></div>
+                            <div class="mb-2">
+                                <button type="button" id="upgrade-plan" class="btn btn--primary"
+                                    data-i18n="settings.billing.upgrade">Upgrade Plan</button>
+                            </div>
+                            <div class="text-muted" data-i18n="settings.billing.payment_options">Payment Options: Visa
+                                **** 1488</div>
+                        </article>
+
+                        <div>
+                            <button type="submit" id="save-changes" class="btn btn--primary btn--large"
+                                data-i18n="settings.actions.save">Save Changes</button>
+                        </div>
+
+                    </form>
                 </div>
-            </div>
+            </section>
 
-            <div class="row" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                <div>
-                    <span data-i18n="settings.profile.photo.title">Profile Photo</span>
-                    <div aria-hidden="true">
-                        <picture>
-                            <source srcset="img/profile-placeholder.webp" type="image/webp">
-                            <img src="img/profile-placeholder.png" alt="Profile photo" width="80" height="80" itemprop="contentUrl">
-                        </picture>
-                    </div>
-                </div>
-                <div>
-                    <label for="photo-upload">
-                        <input id="photo-upload" name="photo" type="file" accept="image/*" hidden>
-                        <button type="button" data-i18n="settings.profile.photo.upload">Upload New Photo</button>
-                    </label>
-                </div>
-            </div>
+        </main>
 
-            <h3 data-i18n="settings.notifications.title">Notifications</h3>
-            <div role="group" aria-label="Notification settings">
-                <label for="notif-email">
-                    <span data-i18n="settings.notifications.email">Email Reminders</span>
-                    <input id="notif-email" name="notif-email" type="checkbox" role="switch" aria-checked="true" checked>
-                </label>
-
-                <label for="notif-reports">
-                    <span data-i18n="settings.notifications.reports">Reports</span>
-                    <input id="notif-reports" name="notif-reports" type="checkbox" role="switch" aria-checked="false">
-                </label>
-            </div>
-
-            <article aria-labelledby="billing-info">
-                <h3 id="billing-info" data-i18n="settings.billing.title">Billing</h3>
-                <div data-i18n="settings.billing.subscription">Subscription: Premium Plan</div>
-                <div>
-                    <button type="button" id="upgrade-plan" data-i18n="settings.billing.upgrade">Upgrade Plan</button>
-                </div>
-                <div data-i18n="settings.billing.payment_options">Payment Options: Visa **** 1488</div>
-            </article>
-
-            <div>
-                <button type="submit" id="save-changes" data-i18n="settings.actions.save">Save Changes</button>
-            </div>
-
-        </form>
-    </section>
-
-</main>
-
-<%- include('partials/footer') %>
+        <%- include('partials/footer') %>
 </body>
+
 </html>
