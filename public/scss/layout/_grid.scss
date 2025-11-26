@@ -29,7 +29,7 @@
 // Responsive Columns
 // Medium devices (tablets, 768px and up) - actually we want this for Desktop to keep side-by-side
 // and stack on tablet/mobile. So we use min-width here.
-@media (min-width: $breakpoint-tablet + 1px) {
+@media (min-width: #{$breakpoint-tablet + 1px}) {
     @for $i from 1 through 12 {
         .col-md-#{$i} {
             flex: 0 0 math.percentage(math.div($i, 12));
