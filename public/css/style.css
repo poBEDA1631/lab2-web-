@@ -794,7 +794,7 @@ p {
 }
 .nav__list {
   display: flex;
-  gap: 16px;
+  gap: 40px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -823,6 +823,7 @@ p {
 .nav__link {
   color: #2d3436;
   font-weight: 500;
+  font-size: 1.2rem;
   transition: color 0.3s ease;
   text-decoration: none;
   display: block;
