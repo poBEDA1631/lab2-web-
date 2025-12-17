@@ -618,7 +618,14 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
+  padding: 0 2rem;
   justify-content: space-between;
+}
+.header__container .nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 @media (max-width: 768px) {
   .header__container .header__logo {
@@ -631,6 +638,8 @@ p {
   }
   .header__container .nav {
     order: 3;
+    flex: 0 0 100%;
+    justify-content: flex-start;
   }
 }
 .header__logo {

@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "name": "Project Alpha",
+      "client": "Client A",
+      "status": "Active",
+      "totalTime": "120h",
+      "description": "This is a detailed description for Project Alpha. It involves complex algorithms and high-speed data processing.",
+      "rating": 5,
+      "likes": 13
+    },
+    {
+      "id": "2",
+      "name": "Project Beta",
+      "client": "Client B",
+      "status": "Completed",
+      "totalTime": "80h",
+      "description": "Project Beta focused on frontend optimization and user experience implementation.",
+      "rating": 4,
+      "likes": 5
+    },
+    {
+      "id": "3",
+      "name": "Project Gamma",
+      "client": "Client C",
+      "status": "Active",
+      "totalTime": "150h",
+      "description": "Gamma is a large-scale infrastructure project.",
+      "rating": 3,
+      "likes": 2
+    },
+    {
+      "id": "4",
+      "name": "Project Delta",
+      "client": "Client D",
+      "status": "Archived",
+      "totalTime": "60h",
+      "description": "Delta was an experimental prototype.",
+      "rating": 2,
+      "likes": 0
+    },
+    {
+      "id": "5",
+      "name": "Project Epsilon",
+      "client": "Client E",
+      "status": "Active",
+      "totalTime": "90h",
+      "description": "Epsilon focuses on mobile responsiveness and accessibility.",
+      "rating": 5,
+      "likes": 15
+    },
+    {
+      "id": "6",
+      "name": "Project Zeta",
+      "client": "Client F",
+      "status": "Active",
+      "totalTime": "45h",
+      "description": "A new initiative for Client F.",
+      "rating": 4,
+      "likes": 3
+    },
+    {
+      "id": "7",
+      "name": "Project Eta",
+      "client": "Client G",
+      "status": "Pending",
+      "totalTime": "10h",
+      "description": "Currently in the planning phase.",
+      "rating": 0,
+      "likes": 0
+    },
+    {
+      "id": "8",
+      "name": "Project Theta",
+      "client": "Client H",
+      "status": "Completed",
+      "totalTime": "200h",
+      "description": "A massive overhaul of the legacy system.",
+      "rating": 5,
+      "likes": 42
+    }
+  ]
+}

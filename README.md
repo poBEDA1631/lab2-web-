@@ -1,6 +1,6 @@
-# SCSS Architecture Project
+# SCSS Architecture & JS SPA Project
 
-This project demonstrates a robust SCSS architecture following the 7-1 pattern and BEM methodology.
+This project demonstrates a robust SCSS architecture following the 7-1 pattern and a JS-based SPA implementation for the Projects section.
 
 ## Features
 
@@ -12,34 +12,53 @@ The SCSS is organized into the following folders:
 - `layout/`: Grid system, header, footer.
 - `pages/`: Page-specific styles.
 
-### Key Functionality
+### JS Interactivity (Lab 4)
+The **Projects** page has been converted to a Single Page Application (SPA) using vanilla JavaScript.
 
-1.  **Variables & Maps**: Defined in `abstracts/_variables.scss` for colors, fonts, breakpoints, and spacing.
-2.  **Mixins**:
-    - `respond-to($breakpoint)`: Media query manager for mobile, tablet, and desktop.
-    - `container`, `flex-center`, `heading-style`.
-3.  **Functions**:
-    - `to-rem($px)`: Converts pixels to rem units.
-    - `color-mix($color1, $color2)`: Mixes two colors.
-4.  **Custom Grid System**:
-    - Implemented in `layout/_grid.scss`.
-    - Supports `.container`, `.row`, `.col-*` (1-12).
-    - Responsive classes: `.col-md-*`, `.col-sm-*`.
-5.  **BEM Methodology**: All components follow Block Element Modifier naming convention.
-6.  **Responsive Images**: Utility classes in `components/_images.scss`.
-7.  **Animations**: Fade and slide animations in `base/_animations.scss`.
-8.  **Print Styles**: Included in `base/_utilities.scss`.
+1.  **API Integration**:
+    - Data fetched from `json-server` (mock API) via `API/http.js` (Axios wrapper).
+    - Endpoints: `GET /projects`, `GET /projects/:id`, `POST /projects`, `PATCH /projects/:id`.
+
+2.  **Architecture**:
+    - **Services**: `ItemService.js` handles data fetching, caching (in-memory with 1 min TTL), and optimistic updates.
+    - **Components**: `ListView.js` (List, Filter, Sort, Pagination) and `ItemView.js` (Details, Create Form).
+    - **Router**: `router.js` implements a custom hash-based router (`#/list`, `#/item/:id`, `#/create`) with URL state synchronization for filters.
+
+3.  **Functionality**:
+    - **List View**: Server-side sorting, filtering, and pagination.
+    - **Search**: Integrated search bar updating URL query parameters.
+    - **Optimistic Updates**: "Like" button updates UI immediately before server confirmation.
+    - **Forms**: Create Project form with HTML5 validation (required, minlength).
 
 ## Usage
 
-To compile the SCSS:
+### Setup
+Install dependencies:
+```bash
+npm install
+```
 
+### Running the Application
+You need to run both the web server (Express) and the API server (json-server).
+
+1. Start API Server:
+```bash
+npm run server:api
+```
+
+2. Start Web Server:
+```bash
+npm start
+```
+
+3. Visit `http://localhost:3000/projects`.
+
+### SCSS Compilation
+To compile SCSS:
 ```bash
 npm run scss
 ```
-
 To watch for changes:
-
 ```bash
 npm run watch:scss
 ```

@@ -12,7 +12,15 @@
     &__container {
         @include container;
         @include flex-center;
+        max-width: 100%; // Override container max-width to stretch full width
+        padding: 0 2rem; // Ensure some padding
         justify-content: space-between;
+
+        .nav {
+            flex: 1;
+            display: flex;
+            justify-content: center; // Center the links in the available space
+        }
 
         @include respond-to(tablet) {
             .header__logo {
@@ -27,6 +35,8 @@
 
             .nav {
                 order: 3;
+                flex: 0 0 100%; // Stack on tablet
+                justify-content: flex-start;
             }
         }
     }
